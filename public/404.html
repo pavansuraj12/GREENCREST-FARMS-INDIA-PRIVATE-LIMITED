@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Greencrest Farms</title>
+    <script type="text/javascript">
+        // GitHub Pages redirect hack for React Router
+        var pathToConvert = window.location.pathname;
+        var basePath = '/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED';
+        if (pathToConvert.indexOf(basePath) === 0) {
+            pathToConvert = pathToConvert.substr(basePath.length);
+        }
+        var l = window.location;
+        l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            basePath + '/#' + (pathToConvert || '/') +
+            (l.search ? '&' + l.search.slice(1) : '')
+        );
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -21,7 +21,7 @@ const EntranceAnimation = ({ onComplete }) => {
             } else {
                 setTimeout(onComplete, 1000);
             }
-        }, stage === 0 ? 2000 : 1500);
+        }, stage === 0 ? 2000 : stage === 1 ? 1500 : stage === 3 ? 5500 : 1500);
 
         return () => clearTimeout(timer);
     }, [stage, onComplete]);
@@ -33,7 +33,7 @@ const EntranceAnimation = ({ onComplete }) => {
     };
 
     return (
-        <div className="fixed inset-0 bg-gradient-to-br from-emerald-900 via-green-800 to-emerald-900 z-[100] flex items-center justify-center">
+        <div className="fixed inset-0 bg-gradient-to-br from-green-50 via-emerald-100 to-green-200 z-[100] flex items-center justify-center">
             <div className="text-center">
                 {stage === 0 && (
                     <motion.div
@@ -53,7 +53,7 @@ const EntranceAnimation = ({ onComplete }) => {
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.5 }}
-                            className="text-4xl font-bold text-white"
+                            className="text-4xl font-bold text-gray-800"
                         >
                             Greencrest Farms
                         </motion.h1>
@@ -61,7 +61,7 @@ const EntranceAnimation = ({ onComplete }) => {
                             initial={{ y: 20, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ delay: 0.7 }}
-                            className="text-emerald-200"
+                            className="text-emerald-700"
                         >
                             Loading Enterprise Agricultural Platform...
                         </motion.p>
@@ -85,9 +85,9 @@ const EntranceAnimation = ({ onComplete }) => {
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
-                                className="w-24 h-32 mx-auto"
+                                className="w-28 h-40 mx-auto"
                             >
-                                <div className="w-full h-full bg-gradient-to-b from-white to-yellow-100 rounded-full relative shadow-2xl">
+                                <div className="w-full h-full bg-gradient-to-b from-white to-yellow-100 relative shadow-2xl" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}>
                                     <div className="absolute top-2 left-2 w-4 h-4 bg-yellow-200 rounded-full opacity-50"></div>
                                     <div className="absolute bottom-4 right-3 w-2 h-2 bg-yellow-300 rounded-full"></div>
                                 </div>
@@ -102,10 +102,10 @@ const EntranceAnimation = ({ onComplete }) => {
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
-                                className="absolute -inset-4 bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-full"
+                                className="absolute -inset-4 bg-gradient-to-br from-yellow-400/20 to-orange-400/20" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}
                             ></motion.div>
                         </div>
-                        <p className="text-white text-lg">Professional hen is preparing something special...</p>
+                        <p className="text-gray-700 text-lg">Professional hen is preparing something special...</p>
                     </motion.div>
                 )}
 
@@ -125,9 +125,9 @@ const EntranceAnimation = ({ onComplete }) => {
                                 ease: "easeInOut"
                             }}
                             onClick={handleEggClick}
-                            className="w-32 h-40 mx-auto cursor-pointer relative group"
+                            className="w-32 h-44 mx-auto cursor-pointer relative group"
                         >
-                            <div className="w-full h-full bg-gradient-to-br from-yellow-100 via-yellow-200 to-yellow-300 rounded-full shadow-2xl border-4 border-yellow-400 group-hover:shadow-yellow-300/50 transition-all duration-300">
+                            <div className="w-full h-full bg-gradient-to-br from-yellow-100 via-yellow-200 to-yellow-300 shadow-2xl border-4 border-yellow-400 group-hover:shadow-yellow-300/50 transition-all duration-300" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}>
                                 <motion.div
                                     animate={{
                                         scale: [1, 1.2, 1],
@@ -138,7 +138,7 @@ const EntranceAnimation = ({ onComplete }) => {
                                         repeat: Infinity,
                                         ease: "easeInOut"
                                     }}
-                                    className="absolute inset-2 bg-gradient-to-br from-yellow-300/50 to-orange-300/50 rounded-full"
+                                    className="absolute inset-2 bg-gradient-to-br from-yellow-300/50 to-orange-300/50" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}
                                 ></motion.div>
                             </div>
                             <motion.div
@@ -151,12 +151,12 @@ const EntranceAnimation = ({ onComplete }) => {
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
-                                className="absolute -inset-8 bg-gradient-to-br from-yellow-400/10 to-orange-400/10 rounded-full"
+                                className="absolute -inset-8 bg-gradient-to-br from-yellow-400/10 to-orange-400/10" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}
                             ></motion.div>
                         </motion.div>
                         <div className="space-y-2">
-                            <p className="text-white text-lg font-semibold">Golden Innovation Awaits</p>
-                            <p className="text-emerald-200">Click the golden egg to unveil enterprise excellence</p>
+                            <p className="text-gray-800 text-lg font-semibold">Golden Innovation Awaits</p>
+                            <p className="text-emerald-700">Click the golden egg to unveil enterprise excellence</p>
                         </div>
                     </motion.div>
                 )}
@@ -170,34 +170,111 @@ const EntranceAnimation = ({ onComplete }) => {
                         <motion.div
                             initial={{ scale: 1 }}
                             animate={{
-                                scale: [1, 1.2, 0],
-                                rotate: [0, 5, -5, 0]
+                                scale: [1, 1.05, 1],
+                                rotate: [0, 2, -2, 0]
                             }}
-                            transition={{ duration: 1 }}
-                            className="w-32 h-40 mx-auto relative"
+                            transition={{ 
+                                duration: 2,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }}
+                            className="w-32 h-44 mx-auto relative"
                         >
-                            <div className="w-full h-full bg-gradient-to-br from-yellow-200 to-yellow-400 rounded-full relative overflow-hidden">
+                            <div className="w-full h-full bg-gradient-to-br from-yellow-200 to-yellow-400 relative overflow-hidden" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}>
+                                {/* Ultra-Realistic Irregular Crack Animation */}
                                 <motion.div
                                     initial={{ pathLength: 0, opacity: 0 }}
                                     animate={{ pathLength: 1, opacity: 1 }}
-                                    transition={{ duration: 0.8 }}
+                                    transition={{ duration: 1.2, delay: 0.2 }}
                                     className="absolute inset-0 flex items-center justify-center"
                                 >
-                                    <svg width="60" height="60" viewBox="0 0 60 60" className="text-yellow-600">
+                                    <svg width="120" height="160" viewBox="0 0 120 160" className="absolute inset-0">
+                                        {/* Main irregular horizontal crack with jagged edges */}
                                         <motion.path
-                                            d="M10 30 Q15 25 30 30 Q45 25 50 30 Q45 35 30 30 Q15 35 10 30 Z"
-                                            stroke="currentColor"
-                                            strokeWidth="2"
+                                            d="M8 78 L12 80 L16 76 L22 82 L28 79 L34 84 L40 77 L46 83 L52 80 L58 85 L64 78 L70 84 L76 81 L82 87 L88 79 L94 83 L100 80 L106 85 L112 81"
+                                            stroke="#1a202c"
+                                            strokeWidth="3.5"
                                             fill="none"
-                                            initial={{ pathLength: 0 }}
-                                            animate={{ pathLength: 1 }}
-                                            transition={{ duration: 0.8, delay: 0.2 }}
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            initial={{ pathLength: 0, opacity: 0 }}
+                                            animate={{ pathLength: 1, opacity: 1 }}
+                                            transition={{ duration: 1.8, delay: 0.3 }}
+                                        />
+                                        {/* Secondary major fracture branches */}
+                                        <motion.path
+                                            d="M22 82 L18 88 L15 93 M34 84 L30 90 L26 96 M46 83 L42 89 L38 95 M58 85 L54 91 L50 97 M70 84 L66 90 L62 96 M82 87 L78 93 L74 99 M94 83 L90 89 L86 95"
+                                            stroke="#2d3748"
+                                            strokeWidth="2.5"
+                                            fill="none"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            initial={{ pathLength: 0, opacity: 0 }}
+                                            animate={{ pathLength: 1, opacity: 1 }}
+                                            transition={{ duration: 1.5, delay: 1.8 }}
+                                        />
+                                        {/* Upper crack branches */}
+                                        <motion.path
+                                            d="M16 76 L12 70 L8 65 M28 79 L24 73 L20 68 M40 77 L36 71 L32 66 M52 80 L48 74 L44 69 M64 78 L60 72 L56 67 M76 81 L72 75 L68 70 M88 79 L84 73 L80 68 M100 80 L96 74 L92 69"
+                                            stroke="#2d3748"
+                                            strokeWidth="2.5"
+                                            fill="none"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            initial={{ pathLength: 0, opacity: 0 }}
+                                            animate={{ pathLength: 1, opacity: 1 }}
+                                            transition={{ duration: 1.5, delay: 1.9 }}
+                                        />
+                                        {/* Fine spider-web cracks */}
+                                        <motion.path
+                                            d="M25 79 L23 75 L21 73 M29 84 L31 88 L33 91 M43 77 L41 73 L39 71 M47 83 L49 87 L51 90 M61 78 L59 74 L57 72 M65 84 L67 88 L69 91 M79 81 L77 77 L75 75 M83 87 L85 91 L87 94"
+                                            stroke="#4a5568"
+                                            strokeWidth="1.8"
+                                            fill="none"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            initial={{ pathLength: 0, opacity: 0 }}
+                                            animate={{ pathLength: 1, opacity: 0.9 }}
+                                            transition={{ duration: 1.2, delay: 3.0 }}
+                                        />
+                                        {/* Micro hairline fractures */}
+                                        <motion.path
+                                            d="M35 79 L37 76 M37 84 L39 87 M55 80 L57 77 M57 85 L59 88 M75 81 L77 78 M77 87 L79 90 M95 80 L97 77 M97 83 L99 86"
+                                            stroke="#718096"
+                                            strokeWidth="1.2"
+                                            fill="none"
+                                            strokeLinecap="round"
+                                            initial={{ pathLength: 0, opacity: 0 }}
+                                            animate={{ pathLength: 1, opacity: 0.7 }}
+                                            transition={{ duration: 1.0, delay: 3.8 }}
+                                        />
+                                        {/* Ultra-fine stress lines */}
+                                        <motion.path
+                                            d="M19 78 L17 76 M45 82 L43 80 M71 79 L69 77 M91 84 L89 82 M26 83 L24 85 M52 78 L50 76 M78 85 L76 87 M98 81 L96 79"
+                                            stroke="#9ca3af"
+                                            strokeWidth="0.8"
+                                            fill="none"
+                                            strokeLinecap="round"
+                                            initial={{ pathLength: 0, opacity: 0 }}
+                                            animate={{ pathLength: 1, opacity: 0.5 }}
+                                            transition={{ duration: 0.8, delay: 4.5 }}
                                         />
                                     </svg>
                                 </motion.div>
+                                {/* Realistic crack depth shadow */}
+                                <motion.div
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 0.25 }}
+                                    transition={{ duration: 1.2, delay: 5.0 }}
+                                    className="absolute inset-0"
+                                    style={{
+                                        background: 'radial-gradient(ellipse 100% 8% at 50% 50%, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.08) 40%, transparent 70%)',
+                                        transform: 'translateY(0px)'
+                                    }}
+                                ></motion.div>
                             </div>
                         </motion.div>
-                        <p className="text-white text-lg">Revealing enterprise innovation...</p>
+                        <p className="text-gray-700 text-lg">Revealing enterprise innovation...</p>
                     </motion.div>
                 )}
 
@@ -222,9 +299,9 @@ const EntranceAnimation = ({ onComplete }) => {
                             transition={{ delay: 0.5, duration: 0.8 }}
                             className="space-y-4"
                         >
-                            <h1 className="text-4xl font-bold text-white">Welcome to Greencrest Farms</h1>
-                            <p className="text-xl text-emerald-200">Leading Agricultural Innovation</p>
-                            <Badge className="bg-yellow-500/20 text-yellow-200 border-yellow-400">
+                            <h1 className="text-4xl font-bold text-gray-800">Welcome to Greencrest Farms</h1>
+                            <p className="text-xl text-emerald-700">Leading Agricultural Innovation</p>
+                            <Badge className="bg-yellow-500/20 text-yellow-700 border-yellow-500">
                                 Enterprise Excellence Since 2025
                             </Badge>
                         </motion.div>

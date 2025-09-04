@@ -76,15 +76,18 @@ export default function CTASection() {
                                 viewport={{ once: true }}
                                 className="w-full sm:w-auto"
                             >
-                                <Button
+                                <button
                                     onClick={handleWhatsAppClick}
-                                    size="lg"
-                                    className="bg-white text-emerald-700 hover:bg-emerald-50 px-8 py-4 text-lg font-semibold group w-full sm:w-auto min-w-[200px]"
+                                    className="bg-white text-gray-700 hover:text-emerald-600 px-8 py-4 text-lg font-semibold transition-all duration-300 relative group w-full sm:w-auto min-w-[200px] rounded-xl shadow-lg"
                                 >
-                                    <MessageCircle className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                                    Chat on WhatsApp
-                                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                                </Button>
+                                    <span className="relative z-10 flex items-center justify-center">
+                                        <MessageCircle className="w-5 h-5 mr-2" />
+                                        Chat on WhatsApp
+                                        <ArrowRight className="w-5 h-5 ml-2" />
+                                    </span>
+                                    {/* Elegant underline animation */}
+                                    <div className="absolute bottom-2 left-8 right-8 h-0.5 bg-emerald-600 transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100"></div>
+                                </button>
                             </motion.div>
 
                             <motion.div
@@ -94,14 +97,17 @@ export default function CTASection() {
                                 viewport={{ once: true }}
                                 className="w-full sm:w-auto"
                             >
-                                <Button
+                                <button
                                     onClick={handleCallClick}
-                                    size="lg"
-                                    className="bg-white text-emerald-700 hover:bg-emerald-50 px-8 py-4 text-lg font-semibold group w-full sm:w-auto min-w-[200px]"
+                                    className="bg-white text-gray-700 hover:text-emerald-600 px-8 py-4 text-lg font-semibold transition-all duration-300 relative group w-full sm:w-auto min-w-[200px] rounded-xl shadow-lg"
                                 >
-                                    <Phone className="w-5 h-5 mr-2 group-hover:scale-110 transition-transform" />
-                                    Call Now
-                                </Button>
+                                    <span className="relative z-10 flex items-center justify-center">
+                                        <Phone className="w-5 h-5 mr-2" />
+                                        Call Now
+                                    </span>
+                                    {/* Elegant underline animation */}
+                                    <div className="absolute bottom-2 left-8 right-8 h-0.5 bg-emerald-600 transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100"></div>
+                                </button>
                             </motion.div>
                         </div>
 

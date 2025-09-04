@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Search, PlayCircle } from "lucide-react";
+import { X, PlayCircle } from "lucide-react";
 
 const galleryImages = {
     all: [
@@ -9,27 +9,13 @@ const galleryImages = {
         { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/chaitanya.jpg", title: "Chaitanya", category: "team" },
         { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/maneesh.jpg", title: "Maneesh", category: "team" },
         { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/tarun.jpg", title: "Tarun", category: "team" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5170.JPG", title: "Team Photo", category: "team" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/WhatsApp Image 2025-09-01 at 14.14.45_3f59d431.jpg", title: "Team Event", category: "team" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5174.JPG", title: "Team Photo", category: "team" },
 
         // Farm and facility photos
         { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5126.JPG", title: "Farm Facility", category: "farm" },
         { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5146.JPG", title: "Farm Operations", category: "farm" },
         { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5149.JPG", title: "Farm Infrastructure", category: "farm" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5156.JPG", title: "Technology Setup", category: "farm" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5178.JPG", title: "Farm Environment", category: "farm" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5187.JPG", title: "Operations View", category: "farm" },
         { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5205.JPG", title: "Facility Overview", category: "farm" },
         { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5188.JPG", title: "Farm Layout", category: "farm" }
-    ]
-};
-
-// Gallery videos for future implementation
-const galleryVideos = {
-    all: [
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5158.MOV", title: "Farm Operations Video", category: "farm", type: "video" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5193.MOV", title: "Technology Demo", category: "technology", type: "video" }
     ]
 };
 
@@ -37,37 +23,24 @@ const galleryVideos = {
 const categories = [
     { value: "farm", label: "Farm", description: "Farm facilities and operations" },
     { value: "technology", label: "Technology", description: "AI monitoring systems" },
-    { value: "team", label: "Team", description: "Meet our experts" },
-    { value: "videos", label: "Videos", description: "Video content" },
+    { value: "team", label: "Team", description: "Meet our experts" }
 ];
 
-// Update galleryImages object and combine with videos for specific categories
+// Update galleryImages object for specific categories
 categories.forEach(cat => {
-    if (cat.value === 'videos') {
-        // Special case for videos category
-        galleryImages[cat.value] = galleryVideos.all;
-    } else {
-        // Filter images by category
-        galleryImages[cat.value] = galleryImages.all.filter(img => img.category === cat.value);
-    }
+    // Filter images by category
+    galleryImages[cat.value] = galleryImages.all.filter(img => img.category === cat.value);
 });
 
 export default function Gallery() {
     const [lightboxImage, setLightboxImage] = useState(null);
     const [activeCategory, setActiveCategory] = useState("farm");
-    const [searchTerm, setSearchTerm] = useState("");
     const [filteredImages, setFilteredImages] = useState([]);
 
     useEffect(() => {
         let images = galleryImages[activeCategory] || [];
-        if (searchTerm) {
-            images = images.filter(img =>
-                img.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                img.category.toLowerCase().includes(searchTerm.toLowerCase())
-            );
-        }
         setFilteredImages(images);
-    }, [activeCategory, searchTerm]);
+    }, [activeCategory]);
 
     const MediaCard = ({ media, index }) => {
         const isVideo = media.type === 'video' || media.src.toLowerCase().includes('.mov') || media.src.toLowerCase().includes('.mp4');
@@ -104,7 +77,7 @@ export default function Gallery() {
                         <img
                             src={media.src}
                             alt="Gallery image"
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
                         />
                     )}
                 </div>
@@ -125,34 +98,25 @@ export default function Gallery() {
 
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    {/* Search Bar */}
-                    <div className="flex justify-center mb-8">
-                        <div className="relative max-w-md w-full">
-                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-                            <input
-                                type="text"
-                                placeholder="Search images..."
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
-                            />
-                        </div>
-                    </div>
-
                     {/* Category Navigation */}
                     <div className="flex flex-wrap justify-center gap-3 mb-8">
                         {categories.map((category) => (
                             <motion.button
                                 key={category.value}
                                 onClick={() => setActiveCategory(category.value)}
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 shadow-sm ${activeCategory === category.value
-                                    ? "bg-emerald-600 text-white shadow-lg transform scale-105"
-                                    : "bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-700 border border-gray-200"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                className={`px-6 py-3 text-sm font-medium transition-all duration-300 relative group ${activeCategory === category.value
+                                    ? "text-emerald-600"
+                                    : "text-gray-700 hover:text-emerald-600"
                                     }`}
                             >
-                                {category.label}
+                                <span className="relative z-10">{category.label}</span>
+                                {/* Elegant underline animation */}
+                                <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-emerald-600 transition-transform duration-300 origin-left ${activeCategory === category.value
+                                    ? "scale-x-100"
+                                    : "scale-x-0 group-hover:scale-x-100"
+                                    }`}></div>
                             </motion.button>
                         ))}
                     </div>
@@ -161,7 +125,6 @@ export default function Gallery() {
                     <div className="text-center mb-6">
                         <p className="text-gray-600">
                             Showing {filteredImages.length} items
-                            {searchTerm && ` for "${searchTerm}"`}
                             {` in ${categories.find(cat => cat.value === activeCategory)?.label}`}
                         </p>
                     </div>
@@ -169,7 +132,7 @@ export default function Gallery() {
                     {/* Image Grid */}
                     <AnimatePresence mode="wait">
                         <motion.div
-                            key={`${activeCategory}-${searchTerm}`}
+                            key={`${activeCategory}`}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}

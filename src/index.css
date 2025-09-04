@@ -56,6 +56,21 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Remove default margins and padding */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Ensure full height layout */
+#root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .hide-scrollbar::-webkit-scrollbar {
     display: none;

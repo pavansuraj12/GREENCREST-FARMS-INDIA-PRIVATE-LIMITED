@@ -114,14 +114,18 @@ export default function ServicesOverview() {
                     viewport={{ once: true }}
                     className="text-center"
                 >
-                    <Button
+                    <button
                         size="lg"
-                        className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 text-lg font-semibold"
+                        className="text-gray-700 hover:text-emerald-600 px-8 py-4 text-lg font-semibold transition-all duration-300 relative group"
                         onClick={() => window.open('https://wa.me/917382185294?text=Hi! I\'d like to know more about your services.', '_blank')}
                     >
-                        Contact Us
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                    </Button>
+                        <span className="relative z-10 flex items-center">
+                            Contact Us
+                            <ArrowRight className="w-5 h-5 ml-2" />
+                        </span>
+                        {/* Elegant underline animation */}
+                        <div className="absolute bottom-2 left-8 right-8 h-0.5 bg-emerald-600 transition-transform duration-300 origin-left scale-x-0 group-hover:scale-x-100"></div>
+                    </button>
                 </motion.div>
             </div>
         </section>

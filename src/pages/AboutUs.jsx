@@ -15,23 +15,19 @@ import {
 const founders = [
     {
         name: "Chaitanya Alapati",
-        role: "Co-Founder & Director",
-        expertise: "Agricultural Technology & Innovation"
+        photo: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/chaitanya.jpg"
     },
     {
         name: "Maneesh Reddy Bhavanam",
-        role: "Co-Founder & Director",
-        expertise: "Business Strategy & Operations"
+        photo: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/maneesh.jpg"
     },
     {
         name: "Tamma Tarun Sai Reddy",
-        role: "Co-Founder & Director",
-        expertise: "Poultry Science & Breeding"
+        photo: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/tarun.jpg"
     },
     {
         name: "Kanna Pavan Suraj",
-        role: "Co-Founder & Director",
-        expertise: "AI Technology & Systems"
+        photo: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/pavan.jpg"
     }
 ];
 
@@ -161,15 +157,28 @@ export default function AboutUs() {
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 viewport={{ once: true }}
                             >
-                                <Card className="h-full group hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                                <Card className="h-full group hover:shadow-lg transition-all duration-300 relative cursor-pointer">
                                     <CardContent className="p-8 text-center">
-                                        <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-2xl mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                                            {founder.name.split(' ').map(n => n[0]).join('')}
+                                        <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6 transition-transform duration-300 overflow-hidden">
+                                            <img
+                                                src={founder.photo}
+                                                alt={founder.name}
+                                                className="w-full h-full object-cover object-top scale-110"
+                                                onError={(e) => {
+                                                    e.target.style.display = 'none';
+                                                    e.target.nextSibling.style.display = 'flex';
+                                                }}
+                                            />
+                                            <div className="w-full h-full bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center text-white font-bold text-xl" style={{ display: 'none' }}>
+                                                {founder.name.charAt(0)}
+                                            </div>
                                         </div>
 
-                                        <h3 className="text-xl font-bold text-gray-900 mb-2">{founder.name}</h3>
-                                        <p className="text-emerald-600 font-semibold mb-3">{founder.role}</p>
-                                        <p className="text-sm text-gray-600">{founder.expertise}</p>
+                                        <h3 className="text-xl font-bold text-gray-900 mb-2 relative">
+                                            {founder.name}
+                                            {/* Elegant underline animation */}
+                                            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-emerald-600 transition-all duration-300 group-hover:w-full"></div>
+                                        </h3>
                                     </CardContent>
                                 </Card>
                             </motion.div>
@@ -276,10 +285,9 @@ export default function AboutUs() {
                                             <div>
                                                 <p className="font-semibold text-gray-900">Address</p>
                                                 <p className="text-gray-600">
-                                                    Fn 402 Venkata Rama Tower<br />
-                                                    Ratanagiri Nagar 1st Line<br />
-                                                    Pattabhipuram, Guntur<br />
-                                                    Andhra Pradesh, India - 522006
+                                                    402 Venkata Rama Tower<br />
+                                                    Ratnagiri Nagar 1st Line, Guntur<br />
+                                                    Andhra Pradesh - 522006
                                                 </p>
                                             </div>
                                         </div>

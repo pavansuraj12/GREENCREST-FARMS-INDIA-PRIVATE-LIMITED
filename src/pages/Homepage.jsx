@@ -42,7 +42,7 @@ const EntranceAnimation = ({ onComplete }) => {
                         className="space-y-8"
                     >
                         <motion.img
-                            src="/assets/logo.png"
+                            src="/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/logo.png"
                             alt="GCF Logo"
                             initial={{ scale: 0.5, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
@@ -209,7 +209,7 @@ const EntranceAnimation = ({ onComplete }) => {
                         className="space-y-8"
                     >
                         <motion.img
-                            src="/assets/logo.png"
+                            src="/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/logo.png"
                             alt="GCF Logo"
                             initial={{ scale: 0.5 }}
                             animate={{ scale: 1 }}

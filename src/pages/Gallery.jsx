@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Search, Filter, Grid, List, Eye, PlayCircle } from "lucide-react";
+import { X, Search, PlayCircle } from "lucide-react";
 
 const galleryImages = {
     all: [
@@ -56,7 +56,6 @@ export default function Gallery() {
     const [lightboxImage, setLightboxImage] = useState(null);
     const [activeCategory, setActiveCategory] = useState("farm");
     const [searchTerm, setSearchTerm] = useState("");
-    const [viewMode, setViewMode] = useState("grid"); // grid or list
     const [filteredImages, setFilteredImages] = useState([]);
 
     useEffect(() => {
@@ -76,8 +75,7 @@ export default function Gallery() {
         return (
             <motion.div
                 layout
-                className={`bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer group relative transition-all duration-300 ${viewMode === 'list' ? 'flex items-center p-4' : 'aspect-square'
-                    }`}
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl cursor-pointer group relative transition-all duration-300 aspect-square"
                 onClick={() => setLightboxImage(media)}
                 whileHover={{ y: -5 }}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -85,15 +83,13 @@ export default function Gallery() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3 }}
             >
-                <div className={`relative overflow-hidden ${viewMode === 'list' ? 'w-24 h-24 flex-shrink-0 rounded-lg' : 'w-full h-full'
-                    }`}>
+                <div className="relative overflow-hidden w-full h-full">
                     {isVideo ? (
                         <>
                             <video
                                 className="w-full h-full object-cover transition-transform duration-500"
                                 muted
                                 playsInline
-                                poster=""
                             >
                                 <source src={media.src} type="video/quicktime" />
                                 <source src={media.src} type="video/mp4" />
@@ -107,28 +103,10 @@ export default function Gallery() {
                     ) : (
                         <img
                             src={media.src}
-                            alt={media.title}
+                            alt="Gallery image"
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         />
                     )}
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-
-                {/* Media Info */}
-                <div className={`${viewMode === 'list' ? 'ml-4 flex-1' : 'absolute bottom-0 left-0 right-0 p-4'
-                    } text-white`}>
-                    <div className={`${viewMode === 'list' ? 'text-gray-900' : 'opacity-0 group-hover:opacity-100'
-                        } transition-opacity duration-300`}>
-                        {media.title && <h3 className="font-semibold text-sm mb-1">{media.title}</h3>}
-                        {isVideo && (
-                            <span className={`inline-flex items-center gap-1 text-xs px-2 py-1 rounded-full ${viewMode === 'list' ? 'bg-blue-100 text-blue-800' : 'bg-white/20 text-white'
-                                }`}>
-                                <PlayCircle className="w-3 h-3" />
-                                Video
-                            </span>
-                        )}
-                    </div>
                 </div>
             </motion.div>
         );
@@ -147,10 +125,9 @@ export default function Gallery() {
 
             <section className="py-20 bg-white">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    {/* Interactive Controls */}
-                    <div className="flex flex-col lg:flex-row justify-between items-center mb-8 gap-4">
-                        {/* Search Bar */}
-                        <div className="relative flex-1 max-w-md">
+                    {/* Search Bar */}
+                    <div className="flex justify-center mb-8">
+                        <div className="relative max-w-md w-full">
                             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                             <input
                                 type="text"
@@ -159,25 +136,6 @@ export default function Gallery() {
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
                             />
-                        </div>
-
-                        {/* View Mode Toggle */}
-                        <div className="flex items-center gap-2">
-                            <span className="text-sm font-medium text-gray-700">View:</span>
-                            <div className="flex border border-gray-300 rounded-lg overflow-hidden">
-                                <button
-                                    onClick={() => setViewMode('grid')}
-                                    className={`p-2 ${viewMode === 'grid' ? 'bg-emerald-600 text-white' : 'text-gray-600 hover:bg-gray-100'} transition-colors`}
-                                >
-                                    <Grid className="w-4 h-4" />
-                                </button>
-                                <button
-                                    onClick={() => setViewMode('list')}
-                                    className={`p-2 ${viewMode === 'list' ? 'bg-emerald-600 text-white' : 'text-gray-600 hover:bg-gray-100'} transition-colors`}
-                                >
-                                    <List className="w-4 h-4" />
-                                </button>
-                            </div>
                         </div>
                     </div>
 
@@ -208,19 +166,15 @@ export default function Gallery() {
                         </p>
                     </div>
 
-                    {/* Image Grid/List */}
+                    {/* Image Grid */}
                     <AnimatePresence mode="wait">
                         <motion.div
-                            key={`${activeCategory}-${viewMode}-${searchTerm}`}
+                            key={`${activeCategory}-${searchTerm}`}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
                             transition={{ duration: 0.5 }}
-                            className={
-                                viewMode === 'grid'
-                                    ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-                                    : "space-y-4"
-                            }
+                            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
                         >
                             {filteredImages.map((media, index) => (
                                 <MediaCard key={`${media.title}-${index}`} media={media} index={index} />
@@ -230,11 +184,8 @@ export default function Gallery() {
 
                     {filteredImages.length === 0 && (
                         <div className="text-center py-12">
-                            <div className="text-gray-400 mb-4">
-                                <Search className="w-16 h-16 mx-auto mb-4" />
-                                <h3 className="text-xl font-semibold text-gray-600">No media found</h3>
-                                <p className="text-gray-500">Try adjusting your search or category filter</p>
-                            </div>
+                            <h3 className="text-xl font-semibold text-gray-600">No media found</h3>
+                            <p className="text-gray-500">Try adjusting your search or category filter</p>
                         </div>
                     )}
                 </div>
@@ -271,19 +222,10 @@ export default function Gallery() {
                             ) : (
                                 <img
                                     src={lightboxImage.src}
-                                    alt={lightboxImage.title}
+                                    alt="Gallery image"
                                     className="max-w-full max-h-[80vh] rounded-lg object-contain"
                                 />
                             )}
-                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
-                                {lightboxImage.title && <h3 className="text-white text-xl font-semibold mb-2">{lightboxImage.title}</h3>}
-                                {(lightboxImage.type === 'video' || lightboxImage.src.toLowerCase().includes('.mov')) && (
-                                    <span className="inline-flex items-center gap-1 text-sm px-2 py-1 rounded-full bg-blue-500/20 text-blue-200">
-                                        <PlayCircle className="w-4 h-4" />
-                                        Video Content
-                                    </span>
-                                )}
-                            </div>
                         </motion.div>
                         <button
                             onClick={() => setLightboxImage(null)}

@@ -254,9 +254,9 @@ export default function Layout({ children }) {
                                 <div className="flex items-start space-x-3">
                                     <MapPin className="w-5 h-5 text-emerald-400 mt-1" />
                                     <div>
-                                        <p>402 Venkata Rama Tower</p>
-                                        <p>Ratnagiri Nagar 1st Line, Guntur</p>
-                                        <p>Andhra Pradesh - 522006</p>
+                                        <p>402, Venkatrama Towers,</p>
+                                        <p>Ratnagiri Nagar, Guntur-522006,</p>
+                                        <p>Andhra Pradesh, India</p>
                                     </div>
                                 </div>
                             </div>

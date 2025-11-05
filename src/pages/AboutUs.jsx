@@ -286,8 +286,8 @@ export default function AboutUs() {
                                                 <p className="font-semibold text-gray-900">Address</p>
                                                 <p className="text-gray-600">
                                                     402, Venkatrama Towers,<br />
-                                                        Ratnagiri Nagar, Guntur-522006,<br />
-                                                        Andhra Pradesh, India
+                                                    Ratnagiri Nagar, Guntur-522006,<br />
+                                                    Andhra Pradesh, India
                                                 </p>
                                             </div>
                                         </div>

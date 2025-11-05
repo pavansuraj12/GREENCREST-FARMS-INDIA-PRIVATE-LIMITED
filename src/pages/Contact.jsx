@@ -308,9 +308,9 @@ export default function Contact() {
                                             <div>
                                                 <p className="font-semibold text-gray-900">Address</p>
                                                 <p className="text-gray-600 leading-relaxed">
-                                                    402 Venkata Rama Tower<br />
-                                                    Ratnagiri Nagar 1st Line, Guntur<br />
-                                                    Andhra Pradesh - 522006
+                                                    402, Venkatrama Towers,<br />
+                                                    Ratnagiri Nagar, Guntur-522006,<br />
+                                                    Andhra Pradesh, India
                                                 </p>
                                             </div>
                                         </div>

@@ -42,7 +42,7 @@ const EntranceAnimation = ({ onComplete }) => {
                         className="space-y-8"
                     >
                         <motion.img
-                            src="/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/logo.png"
+                            src="/assets/logo.png"
                             alt="GCF Logo"
                             initial={{ scale: 0.5, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
@@ -87,7 +87,7 @@ const EntranceAnimation = ({ onComplete }) => {
                                 }}
                                 className="w-28 h-40 mx-auto"
                             >
-                                <div className="w-full h-full bg-gradient-to-b from-white to-yellow-100 relative shadow-2xl" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}>
+                                <div className="w-full h-full bg-gradient-to-b from-white to-yellow-100 relative shadow-2xl" style={{ borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%' }}>
                                     <div className="absolute top-2 left-2 w-4 h-4 bg-yellow-200 rounded-full opacity-50"></div>
                                     <div className="absolute bottom-4 right-3 w-2 h-2 bg-yellow-300 rounded-full"></div>
                                 </div>
@@ -102,7 +102,7 @@ const EntranceAnimation = ({ onComplete }) => {
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
-                                className="absolute -inset-4 bg-gradient-to-br from-yellow-400/20 to-orange-400/20" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}
+                                className="absolute -inset-4 bg-gradient-to-br from-yellow-400/20 to-orange-400/20" style={{ borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%' }}
                             ></motion.div>
                         </div>
                         <p className="text-gray-700 text-lg">Professional hen is preparing something special...</p>
@@ -127,7 +127,7 @@ const EntranceAnimation = ({ onComplete }) => {
                             onClick={handleEggClick}
                             className="w-32 h-44 mx-auto cursor-pointer relative group"
                         >
-                            <div className="w-full h-full bg-gradient-to-br from-yellow-100 via-yellow-200 to-yellow-300 shadow-2xl border-4 border-yellow-400 group-hover:shadow-yellow-300/50 transition-all duration-300" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}>
+                            <div className="w-full h-full bg-gradient-to-br from-yellow-100 via-yellow-200 to-yellow-300 shadow-2xl border-4 border-yellow-400 group-hover:shadow-yellow-300/50 transition-all duration-300" style={{ borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%' }}>
                                 <motion.div
                                     animate={{
                                         scale: [1, 1.2, 1],
@@ -138,7 +138,7 @@ const EntranceAnimation = ({ onComplete }) => {
                                         repeat: Infinity,
                                         ease: "easeInOut"
                                     }}
-                                    className="absolute inset-2 bg-gradient-to-br from-yellow-300/50 to-orange-300/50" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}
+                                    className="absolute inset-2 bg-gradient-to-br from-yellow-300/50 to-orange-300/50" style={{ borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%' }}
                                 ></motion.div>
                             </div>
                             <motion.div
@@ -151,7 +151,7 @@ const EntranceAnimation = ({ onComplete }) => {
                                     repeat: Infinity,
                                     ease: "easeInOut"
                                 }}
-                                className="absolute -inset-8 bg-gradient-to-br from-yellow-400/10 to-orange-400/10" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}
+                                className="absolute -inset-8 bg-gradient-to-br from-yellow-400/10 to-orange-400/10" style={{ borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%' }}
                             ></motion.div>
                         </motion.div>
                         <div className="space-y-2">
@@ -173,14 +173,14 @@ const EntranceAnimation = ({ onComplete }) => {
                                 scale: [1, 1.05, 1],
                                 rotate: [0, 2, -2, 0]
                             }}
-                            transition={{ 
+                            transition={{
                                 duration: 2,
                                 repeat: Infinity,
                                 ease: "easeInOut"
                             }}
                             className="w-32 h-44 mx-auto relative"
                         >
-                            <div className="w-full h-full bg-gradient-to-br from-yellow-200 to-yellow-400 relative overflow-hidden" style={{borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%'}}>
+                            <div className="w-full h-full bg-gradient-to-br from-yellow-200 to-yellow-400 relative overflow-hidden" style={{ borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%' }}>
                                 {/* Ultra-Realistic Irregular Crack Animation */}
                                 <motion.div
                                     initial={{ pathLength: 0, opacity: 0 }}
@@ -286,7 +286,7 @@ const EntranceAnimation = ({ onComplete }) => {
                         className="space-y-8"
                     >
                         <motion.img
-                            src="/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/logo.png"
+                            src="/assets/logo.png"
                             alt="GCF Logo"
                             initial={{ scale: 0.5 }}
                             animate={{ scale: 1 }}

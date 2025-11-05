@@ -15,19 +15,19 @@ import {
 const founders = [
     {
         name: "Chaitanya Alapati",
-        photo: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/chaitanya.jpg"
+        photo: "/assets/chaitanya.jpg"
     },
     {
         name: "Maneesh Reddy Bhavanam",
-        photo: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/maneesh.jpg"
+        photo: "/assets/maneesh.jpg"
     },
     {
         name: "Tamma Tarun Sai Reddy",
-        photo: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/tarun.jpg"
+        photo: "/assets/tarun.jpg"
     },
     {
         name: "Kanna Pavan Suraj",
-        photo: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/pavan.jpg"
+        photo: "/assets/pavan.jpg"
     }
 ];
 
@@ -285,9 +285,9 @@ export default function AboutUs() {
                                             <div>
                                                 <p className="font-semibold text-gray-900">Address</p>
                                                 <p className="text-gray-600">
-                                                    402 Venkata Rama Tower<br />
-                                                    Ratnagiri Nagar 1st Line, Guntur<br />
-                                                    Andhra Pradesh - 522006
+                                                    402, Venkatrama Towers,<br />
+                                                        Ratnagiri Nagar, Guntur-522006,<br />
+                                                        Andhra Pradesh, India
                                                 </p>
                                             </div>
                                         </div>

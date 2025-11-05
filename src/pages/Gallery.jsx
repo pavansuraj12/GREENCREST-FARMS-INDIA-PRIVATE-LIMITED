@@ -5,17 +5,17 @@ import { X, PlayCircle } from "lucide-react";
 const galleryImages = {
     all: [
         // Team photos
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/pavan.jpg", title: "Pavan", category: "team" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/chaitanya.jpg", title: "Chaitanya", category: "team" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/maneesh.jpg", title: "Maneesh", category: "team" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/tarun.jpg", title: "Tarun", category: "team" },
+        { src: "/assets/pavan.jpg", title: "Pavan", category: "team" },
+        { src: "/assets/chaitanya.jpg", title: "Chaitanya", category: "team" },
+        { src: "/assets/maneesh.jpg", title: "Maneesh", category: "team" },
+        { src: "/assets/tarun.jpg", title: "Tarun", category: "team" },
 
         // Farm and facility photos
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5126.JPG", title: "Farm Facility", category: "farm" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5146.JPG", title: "Farm Operations", category: "farm" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5149.JPG", title: "Farm Infrastructure", category: "farm" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5205.JPG", title: "Facility Overview", category: "farm" },
-        { src: "/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/IMG_5188.JPG", title: "Farm Layout", category: "farm" }
+        { src: "/assets/IMG_5126.JPG", title: "Farm Facility", category: "farm" },
+        { src: "/assets/IMG_5146.JPG", title: "Farm Operations", category: "farm" },
+        { src: "/assets/IMG_5149.JPG", title: "Farm Infrastructure", category: "farm" },
+        { src: "/assets/IMG_5205.JPG", title: "Facility Overview", category: "farm" },
+        { src: "/assets/IMG_5188.JPG", title: "Farm Layout", category: "farm" }
     ]
 };
 

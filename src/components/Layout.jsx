@@ -25,7 +25,7 @@ const Logo = ({ className, width = 40, height = 40, loading = "eager", ...props 
             )}
             {!imageError && (
                 <img
-                    src="/GREENCREST-FARMS-INDIA-PRIVATE-LIMITED/assets/logo.png"
+                    src="/assets/logo.png"
                     alt="GREENCREST FARMS Logo"
                     className="object-contain"
                     style={{ width, height, opacity: imageLoaded ? 1 : 0 }}
